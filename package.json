@@ -1,0 +1,49 @@
+{
+  "name": "backend",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuevagit/backend.git"
+  },
+  "author": "Cueva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cuevagit/backend/issues"
+  },
+  "homepage": "https://github.com/cuevagit/backend#readme",
+  "dependencies": {
+    "connect-mongo": "^4.6.0",
+    "crypto-randomuuid": "^1.0.0",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "install": "^0.13.0",
+    "jsonwebtoken": "^9.0.0",
+    "knex": "^2.3.0",
+    "mongoose": "^6.8.4",
+    "mssql": "^7.2.0",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "pg": "^8.8.0",
+    "socket.io": "^4.5.3",
+    "socketio": "^1.0.0",
+    "sqlite3": "^5.1.2",
+    "yargs": "^17.6.2"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "normalizr": "^3.6.2"
+  }
+}
