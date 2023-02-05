@@ -14,10 +14,8 @@ import util from 'util'
 import login from './logIn.js'
 import mongoose from 'mongoose'
 import routerLogin   from './routers/routerLogin.js'
-import { fork } from 'child_process'
 import { STRING_CONEXION_MONGO, USUARIO_CONEXION_MONGO, PASSWORD_CONEXION_MONGO,  BD_MONGO} from './config.js'
 import { routerApiRandom } from './routers/routerApiRandom.js'
-import { routerApiRandomTotal } from './routers/routerApiRandomTotal.js'
 import yargsParser from 'yargs/yargs'
 
 const servidor = express()
@@ -39,7 +37,7 @@ servidor.use('/', routerLogin)
 servidor.use('/views', express.static('views'))
 servidor.use(express.static('public'))
 servidor.use('/', routerApiRandom)
-servidor.use('/api', routerApiRandomTotal)
+
 
 ///:id
 
@@ -157,27 +155,7 @@ io.on('connection', async (socket) => {
     io.sockets.emit('mensajesChatActualizados', normalizedMensajesChat);
 
   })
-
  
-
-  //Calcúlo numeros aleatorios y muestro cantidad de numeros.
-  servidor.get('/', (req, res) => {s
-    console.log("fork")
-    const { url } = req
-  
-    if (url == '/api/randoms') {
-        const computo = fork('./calculo.js')
-        computo.on('message', msg => {
-            if (msg === 'listo') {
-                computo.send('calcular!')
-            } else {
-                res.end(`En proceso`)
-            }
-        })
-    } else if (url == '/') {
-        res.end('Ok ')
-    }
-})
 
 })
 

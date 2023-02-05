@@ -1,8 +1,26 @@
-import {numerosRandom} from '../calculo.js'
+import { fork } from 'child_process'
+//import {numerosRandom} from '../calculo.js'
  
  async function controladorRandom(req, res){
-    const numerosRandomLista = await numerosRandom(req.query.cant);
-    res.json(numerosRandomLista);
+
+    const calculo = fork('calculo.js')
+ 
+    calculo.on('message', msg => {
+      console.log("entro")
+      if (msg === 'listo') { 
+ 
+        calculo.send(req.query.cant)
+      } else {
+        console.log(msg)
+          //res.end({msg})
+          const numerosRandomLista = msg
+          res.json(numerosRandomLista);
+      }
+  }
+  )
+
+   // const numerosRandomLista = await numerosRandom(req.query.cant);
+    //res.json(numerosRandomLista);
   }
 
  
