@@ -9,7 +9,7 @@ import { fork } from 'child_process'
       console.log("entro")
       if (msg === 'listo') { 
  
-        calculo.send(req.query.cant)
+        calculo.send(req.query.cant ?? 100000000)
       } else {
         console.log(msg)
           //res.end({msg})
